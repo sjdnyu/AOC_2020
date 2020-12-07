@@ -1,57 +1,52 @@
-import time
+from common_utils import RunTimeSolution
 
 
 class Solution1(object):
 
+    # initialize Solution1
+    def __init__(self, infile):
+        self.infile = infile
+        with open(self.infile, 'r') as f:
+            self.nums = [int(line) for line in f]
+
     # solution to problem 1.a
-    def solution_a(self, infile):
-        with open(infile, 'r') as f:
-            report = [int(line) for line in f]
+    def a(self):
 
         d = {}
-        for pos, val in enumerate(report):
+        for pos, val in enumerate(self.nums):
             need = 2020 - val
             if need not in d:
                 d[val] = pos
             else:
                 return val * need
 
-
     # solution to problem 1.b
-    def solution_1b(infile):
-        with open(infile, 'r') as f:
-            nums = [int(line) for line in f]
+    def b(self):
 
-        nums.sort()
-        for i in range(len(nums) - 2):
-            if i > 0 and nums[i] == nums[i - 1]:
+        sorted_nums = sorted(self.nums)
+        for i in range(len(sorted_nums) - 2):
+            if i > 0 and sorted_nums[i] == sorted_nums[i - 1]:
                 continue
-            l = i + 1
-            r = len(nums) - 1
-            while l < r:
-                s = nums[i] + nums[l] + nums[r]
+            left = i + 1
+            right = len(sorted_nums) - 1
+            while left < right:
+                s = sorted_nums[i] + sorted_nums[left] + sorted_nums[right]
                 if s < 2020:
-                    l += 1
+                    left += 1
                 elif s > 2020:
-                    r -= 1
+                    right -= 1
                 else:
-                    return nums[i] * nums[l] * nums[r]
-
-
-    # wrapper function to call and print runtime of each solution
-    def time_func(f, *args):
-        stime = time.time()
-        res = f(args[0])
-        etime = time.time()
-        runtime_millis = int((etime - stime) * 1000000.0)
-        print('result = {} \t|  \t runtime(ms) = {}'.format(res, runtime_millis))
+                    return sorted_nums[i] * sorted_nums[left] * sorted_nums[right]
 
 
 # input data file
-input_file = '/Users/dillshau/PycharmProjects/AOC/2020/input_data/d1.txt'
+input_file = '../input_data/d1.txt'
 
-# problem 1
-time_func(solution_1a, input_file)
+# initialize Solution1
+sol1 = Solution1(input_file)
 
-# problem 2
-time_func(solution_1b, input_file)
+# problem a
+RunTimeSolution.run(sol1, sol1.a)
+
+# problem b
+RunTimeSolution.run(sol1, sol1.b)
