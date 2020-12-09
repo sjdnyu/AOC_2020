@@ -5,6 +5,7 @@ class Solution1(object):
 
     # initialize Solution1
     def __init__(self, infile):
+        print ('\nSolution1...')
         self.infile = infile
         with open(self.infile, 'r') as f:
             self.nums = [int(line) for line in f]

@@ -5,6 +5,7 @@ class Solution2(object):
 
     # initialize Solution2
     def __init__(self, infile):
+        print ('\nSolution2...')
         self.infile = infile
         with open(self.infile, 'r') as f:
             self.policies = [line for line in f]

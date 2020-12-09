@@ -14,4 +14,4 @@ class RunTimeSolution(object):
         res = f()
         end_time = time.time()
         runtime_millis = int((end_time - start_time) * 1000000.0)
-        print('result = {} \t|  \t runtime(ms) = {}'.format(res, runtime_millis))
+        print ('runtime(ms) = {} \t| result = {} '.format (runtime_millis, res))
