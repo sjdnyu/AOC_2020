@@ -41,7 +41,7 @@ class Solution1(object):
 
 
 # input data file
-input_file = '../input_data/d1.txt'
+input_file = '/Users/dillshau/PycharmProjects/git_projects/AOC_2020/input_data/d1.txt'
 
 # initialize Solution1
 sol1 = Solution1(input_file)

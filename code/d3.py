@@ -50,7 +50,7 @@ class Solution3(object):
 
 
 # input data file
-input_file = '../input_data/d3.txt'
+input_file = '/Users/dillshau/PycharmProjects/git_projects/AOC_2020/input_data/d3.txt'
 
 # initialize Solution1
 sol3 = Solution3(input_file)
